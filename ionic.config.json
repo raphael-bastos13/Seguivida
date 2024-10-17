@@ -1,0 +1,7 @@
+{
+  "name": "seguivida",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,35 @@
+// Defina a animação corretamente
+@-webkit-keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(
+      -50px
+    ); // Mover menos para manter mais centralizado
+    transform: translateY(-50px);
+  }
+}
+
+@keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(
+      -50px
+    ); // Mover menos para manter mais centralizado
+    transform: translateY(-50px);
+  }
+}
+
+// Aplicação da animação a uma tag img (ou qualquer outro elemento)
+.conteiner {
+  img {
+    margin-top: 55%; // Diminua o valor para aproximar do centro
+    -webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+}

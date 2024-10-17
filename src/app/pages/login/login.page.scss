@@ -1,0 +1,125 @@
+ion-content {
+  --background: #e0dfe0;
+
+  #header {
+    height: 40%;
+    background: #7972e6;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    border-radius: 0px 0px 20px 20px;
+    padding: 20px;
+
+    #app-bar {
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      #ion-icon {
+        font-size: 24px;
+        margin-left: -5px;
+      }
+      /*
+      #logo {
+        width: 30px;
+        height: 30px;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        align-self: center;
+
+        img {
+          width: 70%;
+        }
+      }
+        */
+    }
+    h1 {
+      font-size: 19px;
+      margin-bottom: 5px;
+    }
+    p {
+      font-size: 15px;
+      line-height: 1.4;
+    }
+  }
+  .wrapper {
+    position: absolute;
+    top: 28%;
+    left: 4%;
+    right: 4%;
+
+    .form-wrapper {
+      box-shadow: none;
+      border-radius: 20px;
+
+      ion-item {
+        --background: #efefef;
+        --padding-start: 10px;
+        --highlight-height: 0;
+        --border-width: 0;
+        --padding-top: 0;
+        --min-height: 40px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+
+        ion-icon {
+          font-size: 18px;
+        }
+        ion-input {
+          margin-left: 10px;
+          font-size: 14px;
+        }
+      }
+      ion-button {
+        margin-top: 25px;
+      }
+    }
+    .line-text {
+      padding: 0 30px;
+      position: relative;
+      height: 20px;
+      margin-top: 30px;
+
+      .lines {
+        height: 1px;
+        background: #858585;
+        display: block;
+      }
+      /* LINHA */
+      .text {
+        position: absolute;
+        top: -10px;
+        left: 35%;
+        transform: translateX(-10%);
+        background: #e0dfe6;
+        padding: 0 16px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #858585;
+      }
+    }
+    .social-wrapper {
+      box-shadow: none;
+      border-radius: 20px;
+
+      .socials {
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+
+        ion-button {
+          margin: 0 5px;
+          --padding-star: 12px;
+          --padding-end: 12px;
+        }
+        .btn-go {
+          --background: #fd684f;
+        }
+      }
+    }
+  }
+}

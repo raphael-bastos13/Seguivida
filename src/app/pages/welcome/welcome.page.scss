@@ -1,0 +1,115 @@
+ion-content {
+  --background: #e0dfe0;
+  #header {
+    height: 50%;
+    background: #7972e6;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    border-radius: 0px 0px 20px 20px;
+
+    #app-bar {
+      height: 60px;
+      padding: 0 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      ion-icon {
+        font-size: 23px;
+      }
+    }
+    /*
+    #logo {
+      width: 100px;
+      height: 100px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+      align-self: center;
+      margin-top: 20px;
+      background: #ffffff;
+      img {
+        width: 70%;
+      }
+    }
+      */
+    h2 {
+      text-align: center;
+      font-weight: bold;
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: 1px;
+      margin-top: 5px;
+    }
+  }
+  ion-card {
+    box-shadow: none;
+    position: absolute;
+    top: 37%;
+    left: 5%;
+    right: 5%;
+    border-radius: 20px;
+
+    h1 {
+      font-weight: bold;
+      font-size: 19px;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    p {
+      text-align: center;
+      font-size: 16px;
+      margin-bottom: 45px;
+    }
+    ion-button {
+      height: 40px;
+      --box-shadow: none;
+      text-transform: initial;
+      font-size: 16px;
+      letter-spacing: 0;
+      font-weight: 400;
+    }
+    .line-text {
+      padding: 2px;
+      margin-top: 40px;
+      position: relative;
+      height: 20px;
+
+      .lines {
+        height: 1px;
+        background: #858585;
+        display: block;
+      }
+      /* LINHA */
+      .text {
+        position: absolute;
+        top: -8px;
+        left: 35%;
+        transform: translatex(-20%);
+        background: #fff;
+        padding: 0 15px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #5e5e5e;
+      }
+      /*FIM DA LINHA */
+    }
+    .socials {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+
+      ion-button {
+        margin: 0 5px;
+        --padding-star: 12px;
+        --padding-end: 12px;
+      }
+
+      .btn-go {
+        --background: #fd684f;
+      }
+    }
+  }
+}
