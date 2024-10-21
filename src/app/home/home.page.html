@@ -1,28 +1,45 @@
 <ion-menu contentId="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>nome 2</ion-title>
+  <ion-header class="custom-header">
+    <ion-toolbar class="custom-header">
+      <ion-buttons slot="end">
+        <ion-avatar slot="end">
+          <img src="https://via.placeholder.com/40" alt="Avatar" />
+        </ion-avatar>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">This is the menu content.</ion-content>
 </ion-menu>
+
 <div class="ion-page" id="main-content">
   <ion-header>
-    <ion-toolbar>
+    <ion-toolbar class="custom-header">
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
       <ion-title>Seguivida</ion-title>
     </ion-toolbar>
   </ion-header>
+
   <ion-content class="ion-padding">
-    <div class="ficha">
-      <ion-button expand="block" [routerLink]="['/ficha-medica']"
-        >Ficha Medica</ion-button
+    <div class="button-container">
+      <ion-button
+        expand="block"
+        class="custom-button"
+        [routerLink]="['/ficha-medica']"
       >
-    </div>
-    <div class="local">
-      <ion-button expand="block" [routerLink]="['/local']">Local</ion-button>
+        <ion-icon name="document-text-outline" slot="start"></ion-icon>
+        Ficha Médica
+      </ion-button>
+
+      <ion-button
+        expand="block"
+        class="custom-button"
+        [routerLink]="['/local']"
+      >
+        <ion-icon name="location-outline" slot="start"></ion-icon>
+        Local
+      </ion-button>
     </div>
   </ion-content>
 </div>

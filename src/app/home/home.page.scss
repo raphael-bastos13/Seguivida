@@ -1,0 +1,32 @@
+.custom-header {
+  --background: #2ff3f3;
+  color: #424949;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.custom-button {
+  --background: #3498db;
+  --color: black;
+  font-size: 18px;
+  height: 80px; /* Ajuste de altura para ficar semelhante aos blocos */
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.custom-button ion-icon {
+  font-size: 28px;
+  margin-right: 8px;
+}
+
+.ion-padding {
+  --background: #f8f9f9;
+}
