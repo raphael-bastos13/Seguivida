@@ -10,14 +10,15 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <p>aaaaaaaa.</p>
+  <!-- Div para o Google Maps -->
+  <div id="map" style="height: 500px"></div>
 </ion-content>
 
 <ion-modal [isOpen]="isModalOpen">
   <ng-template>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Informações de Local</ion-title>
+        <ion-title>Informações de dLocal</ion-title>
         <ion-buttons slot="end">
           <ion-button (click)="setOpen(false)" [routerLink]="['/home']"
             >Fechar</ion-button
@@ -26,7 +27,8 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-      <p>aaaaaaaa</p>
+      <!-- Outro mapa pode ser adicionado aqui, ou outras informações -->
+      <p>Informações do local vão aqui.</p>
     </ion-content>
   </ng-template>
 </ion-modal>
