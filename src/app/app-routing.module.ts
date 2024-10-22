@@ -36,11 +36,15 @@ const routes: Routes = [
   },
   {
     path: 'ficha-medica',
-    loadChildren: () => import('./ficha-medica/ficha-medica.module').then( m => m.FichaMedicaPageModule)
+    loadChildren: () =>
+      import('./ficha-medica/ficha-medica.module').then(
+        (m) => m.FichaMedicaPageModule
+      ),
   },
   {
     path: 'local',
-    loadChildren: () => import('./local/local.module').then( m => m.LocalPageModule)
+    loadChildren: () =>
+      import('./local/local.module').then((m) => m.LocalPageModule),
   },
 ];
 
