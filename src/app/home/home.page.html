@@ -5,10 +5,7 @@
         <ion-avatar>
           <img src="https://via.placeholder.com/40" alt="Avatar" />
         </ion-avatar>
-        <div class="user-text">
-          <h2>Raphael Damasceno Bastos</h2>
-          <p>224.688.487-05</p>
-        </div>
+        <div class="user-text"></div>
       </div>
     </ion-toolbar>
   </ion-header>
@@ -21,38 +18,13 @@
       </ion-item>
 
       <ion-item>
-        <ion-icon name="shield-checkmark-outline" slot="start"></ion-icon>
-        <ion-label>Política de Privacidade</ion-label>
-      </ion-item>
-
-      <ion-item>
-        <ion-icon name="document-text-outline" slot="start"></ion-icon>
-        <ion-label>Termo de Responsabilidade</ion-label>
-      </ion-item>
-
-      <ion-item>
-        <ion-icon name="happy-outline" slot="start"></ion-icon>
-        <ion-label>Avaliar</ion-label>
-      </ion-item>
-
-      <ion-item>
         <ion-icon name="settings-outline" slot="start"></ion-icon>
         <ion-label>Preferências</ion-label>
       </ion-item>
 
       <ion-item>
-        <ion-icon name="book-outline" slot="start"></ion-icon>
-        <ion-label>Tutorial</ion-label>
-      </ion-item>
-
-      <ion-item>
-        <ion-icon name="help-circle-outline" slot="start"></ion-icon>
-        <ion-label>Assistente Virtual</ion-label>
-      </ion-item>
-
-      <ion-item>
         <ion-icon name="information-circle-outline" slot="start"></ion-icon>
-        <ion-label>Sobre a CDT</ion-label>
+        <ion-label>Sobre a SV</ion-label>
       </ion-item>
     </ion-list>
 
@@ -73,7 +45,7 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content class="ion-padding">
+  <ion-content class="background">
     <div class="button-container">
       <ion-button
         expand="block"
@@ -90,7 +62,7 @@
         [routerLink]="['/local']"
       >
         <ion-icon name="location-outline" slot="start"></ion-icon>
-        Local
+        Hospitais Proximos
       </ion-button>
     </div>
   </ion-content>

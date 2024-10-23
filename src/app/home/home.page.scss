@@ -1,16 +1,19 @@
 .custom-header {
-  --background: #2ff3f3;
-  color: #424949;
+  --background: #26adad;
+  color: #272b2b;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .button-container {
+  margin-top: 10%;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-top: 20px;
+  gap: 20px; /* distancia d um conteiner para outro */
+  height: 800px; /* altura do conteiner */
+  max-width: 75%;
+  margin-left: 15%;
 }
 
 .custom-button {
@@ -27,8 +30,8 @@
   margin-right: 8px;
 }
 
-.ion-padding {
-  --background: #f8f9f9;
+.background {
+  --background: #070707;
 }
 
 .menu-header {
