@@ -5,3 +5,26 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+
+  .card {
+    background-color: #3498db;
+    color: white;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+  }
+}
