@@ -46,10 +46,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./local/local.module').then((m) => m.LocalPageModule),
   },
-  {
-    path: 'preferencias',
-    loadChildren: () => import('./menu/preferencias/preferencias.module').then( m => m.PreferenciasPageModule)
-  },
+ 
   {
     path: 'sobre',
     loadChildren: () => import('./menu/sobre/sobre.module').then( m => m.SobrePageModule)

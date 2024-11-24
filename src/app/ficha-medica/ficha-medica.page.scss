@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80%;
 }
 
 .card {
@@ -33,6 +33,6 @@
   margin: 5px 0; /* Espaçamento entre as linhas */
 }
 
-.arrow {
-  color: #0a0a0a;
+.custom {
+  --background: #1abc9c;
 }

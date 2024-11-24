@@ -6,23 +6,30 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
-      <ion-list>
-        <ion-item button [routerLink]="['/preferencias']">
-          <ion-icon name="settings-outline" slot="start"></ion-icon>
-          Preferências
-        </ion-item>
+      <div class="menu-container">
+        <ion-list>
+          <!-- Dark Mode Toggle -->
+          <ion-item button (click)="toggleDarkMode()">
+            <ion-icon name="moon-outline" slot="start"></ion-icon>
+            Modo Escuro
+            <ion-toggle slot="end" [checked]="darkMode"></ion-toggle>
+          </ion-item>
 
-        <ion-item button [routerLink]="['/sobre']">
-          <ion-icon name="information-circle-outline" slot="start"></ion-icon>
-          Sobre a CDT
-        </ion-item>
-    
-        <ion-item lines="none"></ion-item>
-        <ion-item class="logout" [routerLink]="['/login']" button>
-          <ion-icon name="log-out-outline" slot="start"></ion-icon>
-          Sair da Conta
-        </ion-item>
-      </ion-list>
+          <!-- Sobre a CDT -->
+          <ion-item button [routerLink]="['/sobre']">
+            <ion-icon name="information-circle-outline" slot="start"></ion-icon>
+            Sobre a CDT
+          </ion-item>
+        </ion-list>
+
+        <!-- Logout Section -->
+        <ion-list class="logout-container">
+          <ion-item class="logout" [routerLink]="['/login']" button>
+            <ion-icon name="log-out-outline" slot="start"></ion-icon>
+            Sair da Conta
+          </ion-item>
+        </ion-list>
+      </div>
     </ion-content>
   </ion-menu>
 

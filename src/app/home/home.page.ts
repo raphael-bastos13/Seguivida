@@ -6,9 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  isModalOpen = false;
+  darkMode = false;
 
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
+  toggleDarkMode() {
+    this.darkMode = !this.darkMode;
+    document.body.classList.toggle('dark', this.darkMode);
   }
 }

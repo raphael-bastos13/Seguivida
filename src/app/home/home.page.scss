@@ -59,3 +59,19 @@ ion-title {
 .logout {
   color: red;
 }
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+
+.logout-container {
+  margin-top: auto;
+}
+
+ion-toggle {
+  --handle-background: #2ff3f3;
+}
