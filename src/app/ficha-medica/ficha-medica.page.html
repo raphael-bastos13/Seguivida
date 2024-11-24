@@ -1,18 +1,27 @@
 <ion-content>
+  <!-- Botão de seta para voltar -->
   <ion-header>
-    <div class="ion-toolbar">
-      <ion-toolbar class="custom">
-        <ion-title>ficha medica</ion-title>
-        <ion-buttons slot="start">
-          <ion-icon name="arrow-back" routerLink="/home"></ion-icon>
-        </ion-buttons>
-      </ion-toolbar>
-    </div>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button routerLink="/home">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
   </ion-header>
 
+  <!-- Conteúdo do card -->
   <div class="container">
     <div class="card">
-      <p>Card</p>
+      <h2>Informações Médicas</h2>
+      <p><strong>Tipo Sanguíneo:</strong> O+</p>
+      <p><strong>Altura:</strong> 1.75m</p>
+      <p><strong>Peso:</strong> 70kg</p>
+      <p><strong>Sexo:</strong> Masculino</p>
+      <p><strong>Idade:</strong> 29 anos</p>
+      <p><strong>Alergias:</strong> Nenhuma</p>
+      <p><strong>Condições Pré-Existentes:</strong> Hipertensão</p>
+      <p><strong>Contato de Emergência:</strong> (11) 99999-9999</p>
     </div>
   </div>
 </ion-content>

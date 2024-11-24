@@ -1,40 +1,38 @@
-.custom {
-  --background: #2ff3f3; /* Fundo azul claro */
-  color: #424949; /* Texto cinza escuro */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 0px 0px 20px 20px; /* Arredondar todos os lados */
-  padding: -10px; /* Espaçamento interno */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras suaves */
-}
-.ion-toolbar {
-  --background: #2ff3f3; /* Fundo azul claro */
-  color: #424949; /* Texto cinza escuro */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 0px 0px 20px 20px; /* Arredondar todos os lados */
-  padding: -10px; /* Espaçamento interno */
-}
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
 
-  .card {
-    background-color: #3498db;
-    color: white;
-    width: 200px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-transform: uppercase;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-  }
+.card {
+  background-color: #e0dfe0; /* Fundo claro para contraste */
+  color: #34495e; /* Texto cinza escuro */
+  width: 300px; /* Aumentei o tamanho do card */
+  height: auto; /* Ajuste automático para o conteúdo */
+  padding: 20px; /* Espaçamento interno maior */
+  display: flex;
+  flex-direction: column; /* Exibir as informações em coluna */
+  justify-content: flex-start; /* Alinhar o conteúdo no topo */
+  align-items: flex-start; /* Alinhar o texto à esquerda */
+  border-radius: 15px; /* Borda mais arredondada */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombras mais suaves */
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  line-height: 1.8; /* Melhor espaçamento entre linhas */
+  text-transform: none; /* Melhor leitura */
+}
+
+.card h2 {
+  color: #1abc9c; /* Cor destacada para o título */
+  margin-bottom: 15px; /* Espaçamento abaixo do título */
+  font-size: 1.5em; /* Tamanho maior do título */
+}
+
+.card p {
+  margin: 5px 0; /* Espaçamento entre as linhas */
+}
+
+.arrow {
+  color: #0a0a0a;
 }
