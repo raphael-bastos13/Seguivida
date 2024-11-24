@@ -1,80 +1,61 @@
-.custom-header {
-  --background: #26adad;
-  color: #272b2b;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.button-container {
-  margin-top: 10%;
+.card-container {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* distancia d um conteiner para outro */
-  height: 800px; /* altura do conteiner */
-  max-width: 75%;
-  margin-left: 15%;
-}
-
-.custom-button {
-  --background: #3498db;
-  --color: black;
-  font-size: 18px;
-  height: 80px; /* Ajuste de altura para ficar semelhante aos blocos */
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.custom-button ion-icon {
-  font-size: 28px;
-  margin-right: 8px;
-}
-
-.background {
-  --background: #070707;
-}
-
-.menu-header {
-  background-color: #f4f4f4;
+  gap: 16px;
   padding: 16px;
 }
 
-.user-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+ion-card {
+  border-radius: 12px;
 }
 
-.user-text h2 {
-  margin: 0;
-  font-size: 18px;
+ion-card-content {
+  color: white;
+  text-align: left;
+}
+
+ion-header ion-title {
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #1e1e1e;
 }
 
-.user-text p {
-  margin: 0;
-  font-size: 14px;
-  color: #6b6b6b;
+ion-avatar {
+  margin-left: 10px;
 }
 
-.menu-content {
-  --ion-background-color: #ffffff;
+.custom {
+  --background: #2ff3f3;
+  border-radius: 0px 0px 20px 20px;
+}
+
+/* Cor do Menu */
+.cor {
+  --background: #2ff3f3;
+}
+
+ion-menu {
+  --background: #f7f7f7;
 }
 
 ion-item {
-  --padding-start: 12px;
-  --inner-padding-end: 12px;
+  --border-color: #dcdcdc;
   font-size: 16px;
+  font-weight: 500;
 }
 
 ion-icon {
-  color: #4a4a4a;
-  font-size: 22px;
+  font-size: 20px;
+  color: #333;
+}
+
+ion-toolbar {
+  --color: #333;
+}
+
+ion-title {
+  font-weight: bold;
 }
 
 .logout {
-  margin-top: 20px;
-  font-weight: bold;
-  color: #e53935;
+  color: red;
 }

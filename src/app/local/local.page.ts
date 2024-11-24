@@ -9,9 +9,10 @@ import { Loader } from '@googlemaps/js-api-loader';
   styleUrls: ['./local.page.scss'],
 })
 export class LocalPage implements OnInit {
-  isModalOpen = false;
-  map: any;
-  service: any;
+  isModalOpen = false; // Gerencia o estado do modal
+  map: any; // Objeto do mapa
+  service: any; // Serviço de lugares
+  markers: any[] = []; // Array para armazenar os marcadores
 
   constructor(private router: Router) {}
 
@@ -20,15 +21,17 @@ export class LocalPage implements OnInit {
   }
 
   ngOnInit() {
-    this.loadMap();
+    this.loadMap(); // Carrega o mapa quando a página inicializa
   }
 
   async loadMap() {
     try {
+      // Obtém a localização atual do usuário
       const position = await Geolocation.getCurrentPosition();
 
+      // Carrega o Google Maps API com sua chave diretamente
       const loader = new Loader({
-        apiKey: 'AIzaSyBF7Yw_2p3Nnth3XyS5g_I_2p5BWXXNblM',
+        apiKey: 'AIzaSyBF7Yw_2p3Nnth3XyS5g_I_2p5BWXXNblM', // Insira sua chave diretamente
         version: 'weekly',
       });
 
@@ -37,6 +40,7 @@ export class LocalPage implements OnInit {
         .then(() => {
           const google = (window as any).google;
 
+          // Configurações do mapa
           const mapOptions = {
             center: {
               lat: position.coords.latitude,
@@ -45,62 +49,67 @@ export class LocalPage implements OnInit {
             zoom: 15,
           };
 
+          // Inicializa o mapa
           this.map = new google.maps.Map(
             document.getElementById('map') as HTMLElement,
             mapOptions
           );
 
-          new google.maps.Marker({
-            position: {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude,
-            },
-            map: this.map,
-            title: 'Minha localização atual',
-          });
-
-          this.loadNearbyHospitals(
-            position.coords.latitude,
-            position.coords.longitude
-          );
+          // Carrega hospitais próximos
+          this.loadNearbyHospitals();
         })
-        .catch((error) =>
-          console.error('Erro ao carregar Google Maps:', error)
-        );
+        .catch((error) => {
+          alert('Erro ao carregar o Google Maps. Tente novamente.');
+          console.error('Erro ao carregar Google Maps:', error);
+        });
     } catch (error) {
-      console.log('Erro ao obter localização', error);
+      alert('Não foi possível obter sua localização. Verifique as permissões.');
+      console.log('Erro ao obter localização:', error);
     }
   }
 
-  loadNearbyHospitals(lat: number, lng: number) {
-    const location = new google.maps.LatLng(lat, lng);
+  loadNearbyHospitals() {
+    // Remove todos os marcadores existentes antes de adicionar novos
+    this.clearMarkers();
 
-    const request = {
-      location: location,
-      radius: 5000, // Raio de busca
-      type: 'hospital', // Tipo de lugar
-      keyword: 'hospital', // Refinar por palavras-chave
-    };
-
+    // Configura o serviço de busca de lugares
     this.service = new google.maps.places.PlacesService(this.map);
 
-    this.service.nearbySearch(request, (results: any, status: any) => {
-      console.log('Status da busca:', status);
-      console.log('Resultados:', results);
+    const request = {
+      location: this.map.getCenter(), // Ponto central do mapa
+      rankBy: google.maps.places.RankBy.DISTANCE, // Sem limite de distância
+      type: 'hospital', // Apenas hospitais
+    };
 
+    // Realiza a busca por hospitais
+    this.service.nearbySearch(request, (results: any[], status: string) => {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
-        results.forEach((place: any) => {
-          if (place.types.includes('hospital')) {
-            new google.maps.Marker({
-              position: place.geometry.location,
-              map: this.map,
-              title: place.name,
-            });
-          }
+        results.forEach((place) => {
+          // Adiciona um marcador para cada hospital encontrado
+          const marker = new google.maps.Marker({
+            position: place.geometry.location, // Localização do hospital
+            map: this.map, // Adiciona ao mapa principal
+            title: place.name, // Nome do hospital como título do marcador
+          });
+
+          // Armazena o marcador no array para futura manipulação
+          this.markers.push(marker);
+
+          // Opcional: Exibe informações do hospital no console (para depuração)
+          console.log('Hospital encontrado:', place.name);
         });
       } else {
+        alert('Erro ao carregar hospitais. Tente novamente.');
         console.error('Erro na busca de hospitais:', status);
       }
     });
+  }
+
+  // Método para limpar todos os marcadores existentes no mapa
+  clearMarkers() {
+    this.markers.forEach((marker) => {
+      marker.setMap(null); // Remove o marcador do mapa
+    });
+    this.markers = []; // Limpa o array de marcadores
   }
 }

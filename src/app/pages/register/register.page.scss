@@ -3,7 +3,7 @@ ion-content {
 
   #header {
     height: 40%;
-    background: #1ce497;
+    background: #070707;
     display: flex;
     flex-direction: column;
     color: #ffffff;
@@ -20,30 +20,21 @@ ion-content {
         font-size: 24px;
         margin-left: -5px;
       }
-      /*
-      #logo {
-        width: 30px;
-        height: 30px;
-        background-color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 10px;
-        align-self: center;
-
-        img {
-          width: 70%;
-        }
-      }
-        */
+    }
+    .ca-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     h1 {
       font-size: 19px;
       margin-bottom: 5px;
+      color: #1ce497;
     }
     p {
       font-size: 15px;
       line-height: 1.4;
+      color: #1ce497;
     }
   }
   .wrapper {

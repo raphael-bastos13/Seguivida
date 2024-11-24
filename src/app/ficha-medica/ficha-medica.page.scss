@@ -1,17 +1,27 @@
 .custom {
-  --background: #2ff3f3;
-  color: #424949;
+  --background: #2ff3f3; /* Fundo azul claro */
+  color: #424949; /* Texto cinza escuro */
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 0px 0px 20px 20px; /* Arredondar todos os lados */
+  padding: -10px; /* Espaçamento interno */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras suaves */
 }
-
+.ion-toolbar {
+  --background: #2ff3f3; /* Fundo azul claro */
+  color: #424949; /* Texto cinza escuro */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0px 0px 20px 20px; /* Arredondar todos os lados */
+  padding: -10px; /* Espaçamento interno */
+}
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f0f0f0;
 
   .card {
     background-color: #3498db;

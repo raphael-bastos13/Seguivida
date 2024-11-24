@@ -1,9 +1,13 @@
+* {
+  font-family: "Gill Sans", "Gill Sans MT", "Calibri", "Trebuchet MS",
+    sans-serif;
+}
 ion-content {
   --background: #e0dfe0;
 
   #header {
     height: 40%;
-    background: #1ce497;
+    background: #000000;
     display: flex;
     flex-direction: column;
     color: #ffffff;
@@ -20,26 +24,21 @@ ion-content {
         font-size: 24px;
         margin-left: -5px;
       }
-      /*
-      #logo {
-        width: 30px;
-        height: 30px;
-        background-color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 10px;
-        align-self: center;
-
-        img {
-          width: 70%;
-        }
-      }
-        */
     }
     h1 {
-      font-size: 19px;
+      font-size: 21px;
       margin-bottom: 5px;
+      color: #1ce497;
+    }
+    .texto {
+      text-align: center;
+      margin-top: 10px;
+      color: #1ce497;
+    }
+    .logar-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     p {
       font-size: 15px;
