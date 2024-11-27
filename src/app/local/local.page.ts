@@ -10,9 +10,9 @@ import { Loader } from '@googlemaps/js-api-loader';
 })
 export class LocalPage implements OnInit {
   isModalOpen = false; // Gerencia o estado do modal
-  map: any; // Objeto do mapa
-  service: any; // Serviço de lugares
-  markers: any[] = []; // Array para armazenar os marcadores
+  map!: google.maps.Map; // Objeto do mapa
+  service!: google.maps.places.PlacesService; // Serviço de lugares
+  markers: google.maps.Marker[] = []; // Array para armazenar os marcadores
 
   constructor(private router: Router) {}
 
@@ -29,9 +29,9 @@ export class LocalPage implements OnInit {
       // Obtém a localização atual do usuário
       const position = await Geolocation.getCurrentPosition();
 
-      // Carrega o Google Maps API com sua chave diretamente
+      // Carrega o Google Maps API com sua chave (considere usar variáveis de ambiente)
       const loader = new Loader({
-        apiKey: 'AIzaSyBF7Yw_2p3Nnth3XyS5g_I_2p5BWXXNblM', // Insira sua chave diretamente
+        apiKey: 'AIzaSyBF7Yw_2p3Nnth3XyS5g_I_2p5BWXXNblM',
         version: 'weekly',
       });
 
@@ -41,7 +41,7 @@ export class LocalPage implements OnInit {
           const google = (window as any).google;
 
           // Configurações do mapa
-          const mapOptions = {
+          const mapOptions: google.maps.MapOptions = {
             center: {
               lat: position.coords.latitude,
               lng: position.coords.longitude,
@@ -75,34 +75,54 @@ export class LocalPage implements OnInit {
     // Configura o serviço de busca de lugares
     this.service = new google.maps.places.PlacesService(this.map);
 
-    const request = {
+    const request: google.maps.places.PlaceSearchRequest = {
       location: this.map.getCenter(), // Ponto central do mapa
       rankBy: google.maps.places.RankBy.DISTANCE, // Sem limite de distância
       type: 'hospital', // Apenas hospitais
     };
 
     // Realiza a busca por hospitais
-    this.service.nearbySearch(request, (results: any[], status: string) => {
-      if (status === google.maps.places.PlacesServiceStatus.OK) {
-        results.forEach((place) => {
-          // Adiciona um marcador para cada hospital encontrado
-          const marker = new google.maps.Marker({
-            position: place.geometry.location, // Localização do hospital
-            map: this.map, // Adiciona ao mapa principal
-            title: place.name, // Nome do hospital como título do marcador
+    this.service.nearbySearch(
+      request,
+      (
+        results: google.maps.places.PlaceResult[] | null,
+        status: google.maps.places.PlacesServiceStatus,
+        pagination: google.maps.places.PlaceSearchPagination | null
+      ) => {
+        if (status === google.maps.places.PlacesServiceStatus.OK && results) {
+          results.forEach((place) => {
+            if (place.geometry && place.geometry.location) {
+              // Adiciona um marcador para cada hospital encontrado
+              const marker = new google.maps.Marker({
+                position: place.geometry.location,
+                map: this.map,
+                title: place.name,
+                icon: {
+                  url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png', // Ícone vermelho
+                },
+              });
+
+              // Armazena o marcador no array para futura manipulação
+              this.markers.push(marker);
+
+              // Opcional: Exibe informações do hospital no console (para depuração)
+              console.log('Hospital encontrado:', place.name);
+            }
           });
 
-          // Armazena o marcador no array para futura manipulação
-          this.markers.push(marker);
-
-          // Opcional: Exibe informações do hospital no console (para depuração)
-          console.log('Hospital encontrado:', place.name);
-        });
-      } else {
-        alert('Erro ao carregar hospitais. Tente novamente.');
-        console.error('Erro na busca de hospitais:', status);
+          // Se necessário, paginar resultados
+          if (pagination && pagination.hasNextPage) {
+            console.log(
+              'Mais resultados disponíveis. Você pode chamar pagination.nextPage() se necessário.'
+            );
+            // Exemplo: pagination.nextPage();
+          }
+        } else {
+          alert('Nenhum hospital encontrado nesta área.');
+          console.error('Erro na busca de hospitais:', status);
+        }
       }
-    });
+    );
   }
 
   // Método para limpar todos os marcadores existentes no mapa

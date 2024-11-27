@@ -5,12 +5,12 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: 'AIzaSyCyNfUJIrZqKApczf8tJejow_PCz19-VcI',
-    authDomain: 'seguivida-4c558.firebaseapp.com',
-    projectId: 'seguivida-4c558',
-    storageBucket: 'seguivida-4c558.appspot.com',
-    messagingSenderId: '397138670582',
-    appId: '1:397138670582:web:2a774c1f503e98e24b4dd7',
+    apiKey: 'AIzaSyCFcMJtGeOj4NnjxP6DcYeVG36nuBucG0o',
+    authDomain: 'seguivida-ae050.firebaseapp.com',
+    projectId: 'seguivida-ae050',
+    storageBucket: 'seguivida-ae050.firebasestorage.app',
+    messagingSenderId: '1098773735059',
+    appId: '1:1098773735059:web:3d388774822ada6f9ecf66',
   },
 };
 

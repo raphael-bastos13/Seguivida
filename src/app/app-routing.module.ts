@@ -46,10 +46,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./local/local.module').then((m) => m.LocalPageModule),
   },
- 
+
   {
     path: 'sobre',
-    loadChildren: () => import('./menu/sobre/sobre.module').then( m => m.SobrePageModule)
+    loadChildren: () =>
+      import('./menu/sobre/sobre.module').then((m) => m.SobrePageModule),
   },
 ];
 

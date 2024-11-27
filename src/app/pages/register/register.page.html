@@ -12,21 +12,35 @@
   </div>
   <div class="wrapper">
     <ion-card class="form-wrapper">
-      <ion-card-content>
-        <ion-item>
-          <ion-icon name="person"></ion-icon>
-          <ion-input type="tex" placeholder="Nome Completo"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-icon name="mail"></ion-icon>
-          <ion-input type="tex" placeholder="Email"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-icon name="lock-closed"></ion-icon>
-          <ion-input type="password" placeholder="Senha"></ion-input>
-        </ion-item>
-        <ion-button expand="block"> Escreva-se</ion-button>
-      </ion-card-content>
+      <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+        <ion-card-content>
+          <ion-item>
+            <ion-icon name="person"></ion-icon>
+            <ion-input
+              type="text"
+              placeholder="Nome Completo"
+              formControlName="name"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="mail"></ion-icon>
+            <ion-input
+              type="text"
+              placeholder="Email"
+              formControlName="email"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="lock-closed"></ion-icon>
+            <ion-input
+              type="password"
+              placeholder="Senha"
+              formControlName="password"
+            ></ion-input>
+          </ion-item>
+          <ion-button type="submit" expand="block"> inscreva-se</ion-button>
+        </ion-card-content>
+      </form>
     </ion-card>
     <div class="line-text">
       <span class="lines"></span>
@@ -35,7 +49,7 @@
     <ion-card class="social-wrapper">
       <ion-card-content>
         <div class="socials">
-          <ion-button class="btn-go">
+          <ion-button class="btn-go" (click)="signInWithGoogle()">
             <ion-icon name="logo-google"></ion-icon>
           </ion-button>
         </div>
