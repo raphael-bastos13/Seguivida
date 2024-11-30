@@ -41,11 +41,6 @@ const routes: Routes = [
         (m) => m.FichaMedicaPageModule
       ),
   },
-  {
-    path: 'local',
-    loadChildren: () =>
-      import('./local/local.module').then((m) => m.LocalPageModule),
-  },
 
   {
     path: 'sobre',

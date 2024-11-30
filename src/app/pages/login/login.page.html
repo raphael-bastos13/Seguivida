@@ -6,34 +6,48 @@
         name="arrow-back"
         routerLink="/welcome"
       ></ion-icon>
-
       <div></div>
     </div>
-
     <img class="img" src="../../assets/seguivida-logo.jpg" />
   </div>
+
   <div class="wrapper">
     <ion-card class="form-wrapper">
-      <ion-card-content>
-        <ion-item>
-          <ion-icon name="mail"></ion-icon>
-          <ion-input type="tex" placeholder="Email"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-icon name="lock-closed"></ion-icon>
-          <ion-input type="password" placeholder="Senha"></ion-input>
-        </ion-item>
-        <ion-button expand="block"> Conectar</ion-button>
-      </ion-card-content>
+      <!-- Adicionando o formulário vinculado ao FormGroup -->
+      <form [formGroup]="loginForm" (ngSubmit)="loginWithEmailAndPassword()">
+        <ion-card-content>
+          <ion-item>
+            <ion-icon name="mail"></ion-icon>
+            <ion-input
+              type="text"
+              placeholder="Email"
+              formControlName="email"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="lock-closed"></ion-icon>
+            <ion-input
+              type="password"
+              placeholder="Senha"
+              formControlName="password"
+            ></ion-input>
+          </ion-item>
+          <!-- Botão para login -->
+          <ion-button type="submit" expand="block">Conectar</ion-button>
+        </ion-card-content>
+      </form>
     </ion-card>
+
     <div class="line-text">
       <span class="lines"></span>
-      <span class="text">Ou conecte-se Usando</span>
+      <span class="text">Ou conecte-se usando</span>
     </div>
+
     <ion-card class="social-wrapper">
       <ion-card-content>
         <div class="socials">
-          <ion-button class="btn-go">
+          <!-- Botão para login com Google -->
+          <ion-button class="btn-go" (click)="signInWithGoogle()">
             <ion-icon name="logo-google"></ion-icon>
           </ion-button>
         </div>

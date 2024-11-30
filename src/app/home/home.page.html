@@ -46,14 +46,14 @@
   <ion-content>
     <div class="card-container">
       <ion-card color="success">
-        <ion-card-content [routerLink]="['/ficha-medica']">
+        <ion-card-content>
           <h2>FICHA</h2>
           <p>Veja a sua <b>ficha</b></p>
         </ion-card-content>
       </ion-card>
 
-      <ion-card color="warning">
-        <ion-card-content [routerLink]="['/local']">
+      <ion-card color="warning" (click)="buscarHospitais()">
+        <ion-card-content>
           <h2>HOSPITAIS</h2>
           <p>Veja os <b>hospitais</b> mais próximos</p>
         </ion-card-content>
