@@ -4,7 +4,7 @@
       <ion-toolbar class="custom">
         <ion-title>Ficha Médica</ion-title>
         <ion-buttons slot="start">
-          <!-- Botão com seta para a direita -->
+          <!-- Botão com seta para voltar -->
           <ion-button routerLink="/home">
             <ion-icon name="arrow-back"></ion-icon>
           </ion-button>
@@ -12,18 +12,108 @@
       </ion-toolbar>
     </div>
   </ion-header>
-
   <div class="container">
+    <!-- Card -->
     <div class="card">
-      <h2>Informações Médicas</h2>
-      <p><strong>Tipo Sanguíneo:</strong> O+</p>
-      <p><strong>Altura:</strong> 1.75m</p>
-      <p><strong>Peso:</strong> 70kg</p>
-      <p><strong>Sexo:</strong> Masculino</p>
-      <p><strong>Idade:</strong> 29 anos</p>
-      <p><strong>Alergias:</strong> Nenhuma</p>
-      <p><strong>Condições Pré-Existentes:</strong> Hipertensão</p>
-      <p><strong>Contato de Emergência:</strong> (11) 99999-9999</p>
+      <h2 *ngIf="!modoEdicao">Ficha Médica</h2>
+      <h2 *ngIf="modoEdicao">Preencha suas Informações Médicas</h2>
+
+      <!-- Campos em modo edição -->
+      <div *ngIf="modoEdicao">
+        <ion-item>
+          <ion-label position="stacked">Tipo Sanguíneo</ion-label>
+          <ion-select
+            [(ngModel)]="fichaMedica.tipoSanguineo"
+            name="tipoSanguineo"
+          >
+            <ion-select-option value="A+">A+</ion-select-option>
+            <ion-select-option value="A-">A-</ion-select-option>
+            <ion-select-option value="B+">B+</ion-select-option>
+            <ion-select-option value="B-">B-</ion-select-option>
+            <ion-select-option value="AB+">AB+</ion-select-option>
+            <ion-select-option value="AB-">AB-</ion-select-option>
+            <ion-select-option value="O+">O+</ion-select-option>
+            <ion-select-option value="O-">O-</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Altura (m)</ion-label>
+          <ion-input
+            type="number"
+            [(ngModel)]="fichaMedica.altura"
+            name="altura"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Peso (kg)</ion-label>
+          <ion-input
+            type="number"
+            [(ngModel)]="fichaMedica.peso"
+            name="peso"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Sexo</ion-label>
+          <ion-select [(ngModel)]="fichaMedica.sexo" name="sexo">
+            <ion-select-option value="Masculino">Masculino</ion-select-option>
+            <ion-select-option value="Feminino">Feminino</ion-select-option>
+            <ion-select-option value="Outro">Outro</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Idade</ion-label>
+          <ion-input
+            type="number"
+            [(ngModel)]="fichaMedica.idade"
+            name="idade"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Alergias</ion-label>
+          <ion-textarea
+            [(ngModel)]="fichaMedica.alergias"
+            name="alergias"
+          ></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Condições Pré-Existentes</ion-label>
+          <ion-textarea
+            [(ngModel)]="fichaMedica.condicoesPreExistentes"
+            name="condicoesPreExistentes"
+          ></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Contato de Emergência</ion-label>
+          <ion-input
+            type="tel"
+            [(ngModel)]="fichaMedica.contatoEmergencia"
+            name="contatoEmergencia"
+          ></ion-input>
+        </ion-item>
+      </div>
+
+      <!-- Exibição de informações em modo visualização -->
+      <div *ngIf="!modoEdicao">
+        <p><strong>Tipo Sanguíneo:</strong> {{ fichaMedica.tipoSanguineo }}</p>
+        <p><strong>Altura:</strong> {{ fichaMedica.altura }} m</p>
+        <p><strong>Peso:</strong> {{ fichaMedica.peso }} kg</p>
+        <p><strong>Sexo:</strong> {{ fichaMedica.sexo }}</p>
+        <p><strong>Idade:</strong> {{ fichaMedica.idade }}</p>
+        <p><strong>Alergias:</strong> {{ fichaMedica.alergias }}</p>
+        <p>
+          <strong>Condições Pré-Existentes:</strong> {{
+          fichaMedica.condicoesPreExistentes }}
+        </p>
+        <p>
+          <strong>Contato de Emergência:</strong> {{
+          fichaMedica.contatoEmergencia }}
+        </p>
+      </div>
     </div>
+
+    <!-- Botão de salvar ou editar -->
+    <ion-button expand="block" (click)="alternarModo()">
+      {{ modoEdicao ? 'Salvar' : 'Editar' }}
+    </ion-button>
   </div>
 </ion-content>

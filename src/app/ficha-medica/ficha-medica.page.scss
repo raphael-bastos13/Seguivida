@@ -1,38 +1,81 @@
 .container {
   display: flex;
+  flex-direction: column; // Coloca os elementos em coluna
   justify-content: center;
   align-items: center;
-  height: 80%;
+  height: 100vh; // Centraliza verticalmente
+  padding: 20px; // Adiciona espaço em dispositivos menores
+  background-color: #f5f5f5; // Fundo claro para destacar o card
+  margin-top: 30%;
 }
 
 .card {
-  background-color: #e0dfe0; /* Fundo claro para contraste */
-  color: #34495e; /* Texto cinza escuro */
-  width: 300px; /* Aumentei o tamanho do card */
-  height: auto; /* Ajuste automático para o conteúdo */
-  padding: 20px; /* Espaçamento interno maior */
-  display: flex;
-  flex-direction: column; /* Exibir as informações em coluna */
-  justify-content: flex-start; /* Alinhar o conteúdo no topo */
-  align-items: flex-start; /* Alinhar o texto à esquerda */
-  border-radius: 15px; /* Borda mais arredondada */
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Sombras mais suaves */
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  line-height: 1.8; /* Melhor espaçamento entre linhas */
-  text-transform: none; /* Melhor leitura */
+  background-color: #ffffff; // Fundo branco para mais contraste
+  color: #34495e; // Texto cinza escuro
+  width: 100%; // Responsivo para dispositivos menores
+  max-width: 350px; // Limita a largura máxima
+  padding: 20px; // Espaçamento interno
+  border-radius: 15px; // Bordas arredondadas
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); // Sombras suaves e modernas
+  font-family: "Arial", sans-serif;
+  font-weight: 500; // Peso de fonte balanceado
+  line-height: 1.6; // Espaçamento entre linhas ajustado
+  text-align: left; // Texto alinhado à esquerda
+  margin-bottom: 20px; // Espaçamento entre o card e o botão
+  transition: transform 0.3s ease, box-shadow 0.3s ease; // Efeito de hover
+
+  &:hover {
+    transform: translateY(-5px); // Elevação ao passar o mouse
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); // Sombras mais destacadas
+  }
+
+  h2 {
+    color: #1abc9c; // Verde destacado para o título
+    margin-bottom: 15px; // Espaçamento inferior
+    font-size: 1.8em; // Tamanho do título ajustado
+  }
+
+  p {
+    margin: 10px 0; // Espaçamento entre parágrafos
+    color: #7f8c8d; // Texto em cinza suave
+  }
 }
 
-.card h2 {
-  color: #1abc9c; /* Cor destacada para o título */
-  margin-bottom: 15px; /* Espaçamento abaixo do título */
-  font-size: 1.5em; /* Tamanho maior do título */
-}
+button {
+  width: 100%; // Faz o botão ocupar toda a largura do card
+  max-width: 350px; // Alinha a largura do botão com o card
+  padding: 12px 20px; // Tamanho confortável
+  font-size: 1em; // Tamanho de texto proporcional
+  color: #ffffff; // Texto branco
+  background-color: #1abc9c; // Cor verde para o botão
+  border: none;
+  border-radius: 8px; // Bordas arredondadas
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); // Sombras suaves
+  cursor: pointer; // Cursor de ponteiro
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
-.card p {
-  margin: 5px 0; /* Espaçamento entre as linhas */
+  &:hover {
+    background-color: #16a085; // Tom mais escuro ao passar o mouse
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); // Sombras mais destacadas
+  }
 }
 
 .custom {
-  --background: #1abc9c;
+  --background: #1abc9c; // Fundo verde personalizado
+  --color: #ffffff; // Texto branco para contraste
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px; // Reduz o espaçamento lateral em telas menores
+  }
+
+  .card {
+    width: 100%; // Adapta para dispositivos menores
+    max-width: 300px; // Ajusta a largura máxima em telas pequenas
+  }
+
+  button {
+    max-width: 300px; // Ajusta largura do botão em telas pequenas
+  }
 }
